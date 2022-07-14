@@ -8,7 +8,7 @@ up: async (queryInterface, Sequelize) => {
       allowNull: false,
       // field: 'postCategory_id',
       references: {
-        model: 'blogPost',
+        model: 'BlogPosts',
         key: 'id',
       },
       primaryKey: true,
@@ -18,7 +18,7 @@ up: async (queryInterface, Sequelize) => {
       allowNull: false,
       // field: 'category_id',
       references: {
-        model: 'category',
+        model: 'Categories',
         key: 'id',
       },
       primaryKey: true,

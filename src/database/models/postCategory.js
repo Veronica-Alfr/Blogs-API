@@ -10,7 +10,7 @@ const createPostCategoriesModel = (sequelize, DataTypes) => {
       }
     }, {
       underscored: true,
-      // tableName: 'postCategory',
+      // tableName: 'postCategory', // buscar retornar o nome caso n dê erro na 12
       timestamps: false
     });
 

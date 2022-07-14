@@ -3,10 +3,7 @@ const createModelPosts = (sequelize, DataTypes) => {
       id: DataTypes.INTEGER,
       title: DataTypes.STRING,
       content: DataTypes.STRING,
-      userId: {
-        type: DataTypes.INTEGER,
-        field: 'user_id',
-      },
+      userId: DataTypes.INTEGER,
       published: DataTypes.DATE,
     }, {
       tableName: 'blogPosts',
