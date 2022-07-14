@@ -6,7 +6,7 @@ up: async (queryInterface, Sequelize) => {
     postId: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      field: 'postCategory_id', // ou comentar todos os field
+      // field: 'postCategory_id',
       references: {
         model: 'blogPost',
         key: 'id',
@@ -16,7 +16,7 @@ up: async (queryInterface, Sequelize) => {
     categoryId: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      field: 'category_id',
+      // field: 'category_id',
       references: {
         model: 'category',
         key: 'id',
