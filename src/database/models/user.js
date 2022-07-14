@@ -2,6 +2,7 @@ const sequelize = require("sequelize");
 
 const createUser = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    id: DataTypes.INTEGER,
     displayName: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -12,7 +13,7 @@ const createUser = (sequelize, DataTypes) => {
   });
 
 User.associate = (db) => {
-  User.hasMany(db.BlogPosts, { as: 'blogPosts', foreignKey: 'userId' });
+  User.hasMany(db.BlogPost, { as: 'blogPosts', foreignKey: 'userId' });
 }
   return User;
 };

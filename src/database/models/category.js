@@ -1,8 +1,9 @@
 const createCategoriesModel = (sequelize, DataTypes) => {
-    const Category = sequelize.define('Categories', {
+    const Category = sequelize.define('Category', {
+      id: DataTypes.INTEGER,
       name: DataTypes.STRING,
     }, {
-      tableName: 'categories',
+      tableName: 'category',
       underscored: true,
     });
     
