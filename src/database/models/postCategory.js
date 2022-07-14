@@ -9,8 +9,6 @@ const createPostCategoriesModel = (sequelize, DataTypes) => {
         primaryKey: true,
       }
     }, {
-      underscored: true,
-      tableName: 'postCategory', // buscar remover o nome caso dê erro na 12
       timestamps: false
     });
 

@@ -13,7 +13,7 @@ const login = async (email, password) => {
        throw e;
     }
 
-    if (!user || user.passwordHash !== password) {
+    if (!user || user.password !== password) {
        const e = new Error('Invalid fields');
        e.name = 'UnauthorizedError';
        throw e;

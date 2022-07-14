@@ -6,9 +6,6 @@ const createCategoriesModel = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       name: DataTypes.STRING,
-    }, {
-      tableName: 'category',
-      underscored: true,
     });
     
    return Category;

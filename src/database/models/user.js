@@ -12,8 +12,7 @@ const createUser = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     image: DataTypes.STRING,
   }, {
-    tableName: 'user',
-    underscored: true,
+    timestamps: false,
   });
 
 User.associate = (model) => {
