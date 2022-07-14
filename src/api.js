@@ -1,10 +1,23 @@
 const express = require('express');
-
-// ...
+const authRouter = require('./database/routers/authRouter');
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/login', authRouter);
+
+app.use((err, _req, res, _next) => {
+    const { name, message } = err;
+    switch (name) {
+      case 'UnauthorizedError':
+        res.status(400).json({ message });
+        break; // caso de token: 2 erros 401, mas com messages diferentes
+      default:
+        res.status(500).json({ message });
+        break;
+    }
+});
 
 // ...
 

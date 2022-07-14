@@ -7,7 +7,7 @@ const createModelPosts = (sequelize, DataTypes) => {
       published: DataTypes.DATE,
       updated: DataTypes.DATE,
     }, {
-      tableName: 'blogPosts',
+      // tableName: 'blogPosts',
       underscored: true,
     });
   
