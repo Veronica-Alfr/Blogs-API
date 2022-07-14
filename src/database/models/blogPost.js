@@ -5,6 +5,7 @@ const createModelPosts = (sequelize, DataTypes) => {
       content: DataTypes.STRING,
       userId: DataTypes.INTEGER,
       published: DataTypes.DATE,
+      updated: DataTypes.DATE,
     }, {
       tableName: 'blogPosts',
       underscored: true,
