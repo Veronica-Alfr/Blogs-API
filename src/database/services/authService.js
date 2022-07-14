@@ -3,8 +3,8 @@ const jwtService = require('./jwtService');
 
 const login = async (email, password) => {
     const user = await db.User.findOne({ // db.User está sendo lido?
-       attributes: { exclude: [] },
-       where: { email }, 
+      //  attributes: { exclude: [] },
+       where: { email },
     });
 
     if (!email || !password) {
