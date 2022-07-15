@@ -2,7 +2,7 @@ const model = require('../models');
 const { schemaLogin } = require('../middlewares/authSchema');
 const jwtService = require('./jwtService');
 
-const validateBody = (email, password) => {
+const validateBody = ({ email, password }) => {
    const { error, value } = schemaLogin.validate({ email, password });
 
    if (error) throw error;
