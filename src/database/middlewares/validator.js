@@ -1,4 +1,5 @@
 const { schemaLogin } = require('./authSchema');
+const jwtService = require('../services/jwtService');
 
 const validateBody = (data) => {  
     const { error, value } = schemaLogin.validate(data);
@@ -8,4 +9,9 @@ const validateBody = (data) => {
     return value;
 };
 
-module.exports = { validateBody };
+const validateToken = (token) => {
+    const tokenValidated = jwtService.validateToken(token);
+    return tokenValidated;
+};
+
+module.exports = { validateBody, validateToken };
