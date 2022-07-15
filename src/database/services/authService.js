@@ -7,7 +7,7 @@ const login = async (email, password) => {
        where: { email },
     });
 
-    if (!email || !password) {
+    if (!user.email || !user.password) {
        const e = new Error('Some required fields are missing');
        e.name = 'UnauthorizedError';
        throw e;
