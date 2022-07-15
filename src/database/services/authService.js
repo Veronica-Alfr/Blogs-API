@@ -1,11 +1,19 @@
 const model = require('../models');
+const { schemaLogin } = require('../middlewares/authSchema');
 const jwtService = require('./jwtService');
+
+const validateBody = (email, password) => {
+   const { error, value } = schemaLogin.validate({ email, password });
+
+   if (error) throw error;
+
+   return value;
+};
 
 const login = async (email, password) => {
     const user = await model.User.findOne({
-      //  attributes: { exclude: [] },
-       where: { email },
-    });
+       where: { email, password },
+   });
 
     if (!email || !password) {
        const e = new Error('Some required fields are missing');
@@ -24,4 +32,4 @@ const login = async (email, password) => {
     return token;
 };
 
-module.exports = { login };
+module.exports = { login, validateBody };
