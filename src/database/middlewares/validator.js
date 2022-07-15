@@ -1,12 +1,19 @@
 const { schemaLogin } = require('./authSchema');
 const jwtService = require('../services/jwtService');
 
-const validateBody = (data) => {  
-    const { error, value } = schemaLogin.validate(data);
+const validateBody = (req, _res) => {  
+    // const { error, value } = schemaLogin.validate(data);
   
-    if (error) throw error;
+    // if (error) throw error;
 
-    return value;
+    // return value;
+  const { email, password } = req.body;
+
+  const { error, value } = schemaLogin.validate({ email, password });
+
+  if (!error) throw error;
+
+   return value;
 };
 
 const validateToken = (token) => {

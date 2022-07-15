@@ -1,13 +1,13 @@
-const db = require('../models');
+const model = require('../models');
 const jwtService = require('./jwtService');
 
 const login = async (email, password) => {
-    const user = await db.User.findOne({ // db.User está sendo lido?
+    const user = await model.User.findOne({
       //  attributes: { exclude: [] },
        where: { email },
     });
 
-    if (!user.email || !user.password) {
+    if (!email || !password) {
        const e = new Error('Some required fields are missing');
        e.name = 'UnauthorizedError';
        throw e;
