@@ -1,4 +1,4 @@
-// const { schemaLogin } = require('./authSchema');
+// const { schemaUser } = require('./authSchema');
 // const jwtService = require('../services/jwtService');
 
 // const validateToken = (token) => {

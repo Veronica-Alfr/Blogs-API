@@ -9,4 +9,11 @@ const schemaLogin = Joi.object({
     }),
 });
 
-module.exports = { schemaLogin };
+const schemaUser = Joi.object({
+    displayName: Joi.string().required().min(8),
+    email: Joi.string().email().required(),
+    password: Joi.string().required().min(6),
+    image: Joi.string().required(),
+});
+
+module.exports = { schemaLogin, schemaUser };

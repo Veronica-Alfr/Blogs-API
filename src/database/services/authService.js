@@ -1,5 +1,5 @@
 const model = require('../models');
-const { schemaLogin } = require('../middlewares/authSchema');
+const { schemaLogin } = require('../middlewares/schemas');
 const jwtService = require('./jwtService');
 
 const validateBody = ({ email, password }) => {
@@ -19,6 +19,12 @@ const login = async (email, password) => {
        const e = new Error('Invalid fields');
        e.name = 'UnauthorizedError';
        throw e;
+    }
+
+    if (user.email === email) {
+      const e = new Error('User already registered');
+      e.name = 'UserExistisError';
+      throw e;
     }
     
     const token = jwtService.createToken(user);

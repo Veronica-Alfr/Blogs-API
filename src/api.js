@@ -16,6 +16,9 @@ app.use((err, _req, res, _next) => {
       case 'UnauthorizedError':
         res.status(400).json({ message });
         break; // caso de token: 2 erros 401, mas com messages diferentes
+      case 'UserExistisError':
+        res.status(409).json({ message });
+        break;
       default:
         res.status(500).json({ message });
         break;
