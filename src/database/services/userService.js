@@ -10,15 +10,15 @@ const validateBodyUser = ({ displayName, email, password, image }) => {
 };
 
 const create = async ({ displayName, email, password, image }) => {
-    // const userExisted = await model.User.findOne({
-    //     where: { email },
-    // });
+    const userExisted = await model.User.findOne({
+        where: { email },
+    });
 
-    // if (userExisted.email === email) {
-    //     const e = new Error('User already registered');
-    //     e.name = 'UserExistisError';
-    //     throw e;
-    // }
+    if (userExisted) {
+        const e = new Error('User already registered');
+        e.name = 'UserExistisError';
+        throw e;
+    }
 
     const user = await model.User.create({ displayName, email, password, image });
 
