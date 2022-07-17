@@ -1,3 +1,4 @@
+require('express-async-errors');
 const { Router } = require('express');
 // const { validateBody } = require('../middlewares/validator');
 

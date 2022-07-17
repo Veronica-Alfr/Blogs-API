@@ -20,12 +20,6 @@ const login = async (email, password) => {
        e.name = 'UnauthorizedError';
        throw e;
     }
-
-    if (user.email === email) {
-      const e = new Error('User already registered');
-      e.name = 'UserExistisError';
-      throw e;
-    }
     
     const token = jwtService.createToken(user);
   
