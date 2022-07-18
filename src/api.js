@@ -21,7 +21,10 @@ app.use((err, _req, res, _next) => {
         break;
       case 'ValidationTokenError':
         res.status(401).json({ message });
-        break;  
+        break;
+      case 'NotFoundError':
+        res.status(404).json({ message });
+        break;
       default:
         res.status(500).json({ message });
         break;

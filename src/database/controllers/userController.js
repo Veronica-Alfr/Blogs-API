@@ -23,4 +23,18 @@ const findAll = async (_req, res) => {
     return res.status(200).json(users);
 };
 
-module.exports = { create, findAll };
+const findById = async (req, res) => {
+    const { id } = req.params;
+
+    const user = await userService.getById(id);
+
+    if (!user) {
+        const e = new Error('User does not exist');
+        e.name = 'NotFoundError';
+        throw e;
+    }
+
+    return res.status(200).json(user);
+};
+
+module.exports = { create, findAll, findById };
