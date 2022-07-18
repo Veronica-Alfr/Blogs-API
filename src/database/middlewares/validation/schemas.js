@@ -9,11 +9,18 @@ const schemaLogin = Joi.object({
     }),
 });
 
-const schemaUser = Joi.object({
+const validateUser = (body) => {
+    const schemaUser = Joi.object({
     displayName: Joi.string().required().min(8),
     email: Joi.string().email().required(),
     password: Joi.string().required().min(6),
     image: Joi.string().required(),
 });
 
-module.exports = { schemaLogin, schemaUser };
+const { error, value } = schemaUser.validate(body);
+    if (error) return { error: { code: 400, message: error.details[0].message } };
+ 
+    return value;
+};
+
+module.exports = { schemaLogin, validateUser };

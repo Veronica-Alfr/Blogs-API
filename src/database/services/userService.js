@@ -1,28 +1,23 @@
 const model = require('../models');
-const { schemaUser } = require('../middlewares/schemas');
-
-const validateBodyUser = ({ displayName, email, password, image }) => {
-    const { error, value } = schemaUser.validate({ displayName, email, password, image });
- 
-    if (error) throw error;
- 
-    return value;
-};
 
 const create = async ({ displayName, email, password, image }) => {
     const userExisted = await model.User.findOne({
         where: { email },
     });
 
+    console.log(userExisted, 'usuario existe por email');
+
     if (userExisted) {
         const e = new Error('User already registered');
-        e.name = 'UserExistisError';
+        e.name = 'UserExistError';
         throw e;
     }
+
+    console.log(userExisted, 'usuario realmente existe');
 
     const user = await model.User.create({ displayName, email, password, image });
 
     return user;
 };
 
-module.exports = { create, validateBodyUser };
+module.exports = { create };

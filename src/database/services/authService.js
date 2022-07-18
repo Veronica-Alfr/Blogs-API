@@ -1,5 +1,5 @@
 const model = require('../models');
-const { schemaLogin } = require('../middlewares/schemas');
+const { schemaLogin } = require('../middlewares/validation/schemas');
 const jwtService = require('./jwtService');
 
 const validateBody = ({ email, password }) => {
