@@ -17,7 +17,7 @@ const validateUser = (body) => {
     image: Joi.string().required(),
 });
 
-const { error, value } = schemaUser.validate(body);
+  const { error, value } = schemaUser.validate(body);
     if (error) return { error: { code: 400, message: error.details[0].message } };
  
     return value;
