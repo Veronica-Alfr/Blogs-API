@@ -5,19 +5,22 @@ const create = async ({ displayName, email, password, image }) => {
         where: { email },
     });
 
-    console.log(userExisted, 'usuario existe por email');
-
     if (userExisted) {
         const e = new Error('User already registered');
         e.name = 'UserExistError';
         throw e;
     }
 
-    console.log(userExisted, 'usuario realmente existe');
-
     const user = await model.User.create({ displayName, email, password, image });
 
     return user;
 };
 
-module.exports = { create };
+const getAll = async () => {
+    const allUsers = await model.User.findAll({
+        where: { attributes: { exclude: ['password'] } },
+    });
+    return allUsers;
+};
+
+module.exports = { create, getAll };

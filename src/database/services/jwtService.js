@@ -6,4 +6,19 @@ const createToken = (data) => {
     return token;
 };
 
-module.exports = { createToken };
+const verifyToken = (token) => {
+    const data = jwt.verify(token, process.env.JWT_SECRET);
+
+    try {
+        if (!data) {
+            return { error: { message: 'Token not found' } };
+        }
+
+            return data;
+    } catch (e) {
+            e.message = 'Expired or invalid token';
+            return { error: { message: e.message } };
+    }
+};
+
+module.exports = { createToken, verifyToken };

@@ -8,11 +8,7 @@ const create = async (req, res) => {
     if (!userCreate.error) {
         const user = await userService.create(userCreate);
 
-        console.log(user, 'Antes do token');
-
         const token = jwtService.createToken(user);
-
-        console.log(user, 'Depois do token');
 
         return res.status(201).json({ token });
     }
@@ -21,4 +17,20 @@ const create = async (req, res) => {
         throw e;
 };
 
-module.exports = { create };
+const findAll = async (req, res) => {
+    const { authorization } = req.headers;
+
+    const validateToken = jwtService.verifyToken(authorization);
+
+    if (validateToken.error) {
+        const e = new Error(validateToken.error.message);
+          e.name = 'ValidationTokenError';
+          throw e;
+    }
+
+    const users = await userService.getAll();
+
+    return res.status(200).json(users);
+};
+
+module.exports = { create, findAll };
