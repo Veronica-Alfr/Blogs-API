@@ -17,9 +17,7 @@ const create = async ({ displayName, email, password, image }) => {
 };
 
 const getAll = async () => {
-    const allUsers = await model.User.findAll({
-        where: { attributes: { exclude: ['password'] } },
-    });
+    const allUsers = await model.User.findAll({ attributes: { exclude: ['password'] } });
     return allUsers;
 };
 

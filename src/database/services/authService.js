@@ -19,9 +19,11 @@ const login = async (email, password) => {
        const e = new Error('Invalid fields');
        e.name = 'UnauthorizedError';
        throw e;
-    }
+   }
     
-    const token = jwtService.createToken(user);
+    const { password: _, ...userWithoutPass } = user.dataValues;
+
+    const token = jwtService.createToken(userWithoutPass);
   
     return token;
 };
