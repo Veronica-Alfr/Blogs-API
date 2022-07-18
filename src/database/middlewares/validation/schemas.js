@@ -23,4 +23,15 @@ const validateUser = (body) => {
     return value;
 };
 
-module.exports = { schemaLogin, validateUser };
+const validateCategory = (body) => {
+    const schemaCategory = Joi.object({
+        name: Joi.string().required(),
+    });
+
+    const { error, value } = schemaCategory.validate(body);
+    if (error) return { error: { code: 400, message: error.details[0].message } };
+ 
+    return value;
+};
+
+module.exports = { schemaLogin, validateUser, validateCategory };
