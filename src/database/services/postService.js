@@ -1,21 +1,23 @@
 const model = require('../models');
-// const userService = require('./userService');
 
 const create = async ({ title, content, categoryIds }, userId) => {
-    const categoryId = await model.Category
+    const category = await model.Category
     .findAndCountAll({ where: { id: categoryIds } });
 
-    if (categoryIds.length !== categoryId.count) {
+    if (categoryIds.length !== category.count) {
         const e = new Error('"categoryIds" not found');
         e.name = 'UnauthorizedError';
         throw e;
     }
 
-    // pegar o id do novo post e criar na CategoryPost de acordo com as categorias passadas;
+    const blogPost = await model.BlogPost.create({ title, content, userId });
 
-    const postCategory = await model.BlogPost.create({ title, content, userId });
+    const categoryId = categoryIds
+    .map((id) => ({ postId: blogPost.dataValues.id, categoryId: id }));
 
-    return postCategory;
+    await model.PostCategory.bulkCreate(categoryId);
+
+    return blogPost;
 };
-// create({ categoryIds: [1, 2] });
+
 module.exports = { create };

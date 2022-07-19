@@ -5,7 +5,6 @@ const create = async (req, res) => {
     const postCreate = validatePost(req.body);
 
     const { id } = req.user.data;
-    console.log(req.user);
 
     if (!postCreate.error) {
         const postNew = await postService.create(postCreate, id);
