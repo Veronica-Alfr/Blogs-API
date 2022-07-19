@@ -11,7 +11,8 @@ const createModelPosts = (sequelize, DataTypes) => {
       published: DataTypes.DATE,
       updated: DataTypes.DATE,
     }, {
-      timestamps: false
+      createdAt: 'published',
+      updatedAt: 'updated'
     });
   
 Post.associate = (model) => {
