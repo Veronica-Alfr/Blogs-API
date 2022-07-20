@@ -21,18 +21,27 @@ const create = async ({ title, content, categoryIds }, userId) => {
 
 const getAll = async () => {
     const allPosts = await model.BlogPost
-    .findAll({ include: [
+    .findAll(
+        { include: 
+    [
         { model: model.User, as: 'user', attributes: { exclude: ['password'] } },
-        { model: model.Category,
-            as: 'categories',
-            through: { attributes: [] } },
-    ] });
+        { model: model.Category, as: 'categories', through: { attributes: [] } },
+    ] },
+    );
 
     return allPosts;
 };
 
 const getById = async (id) => {
-    const postUnique = await model.BlogPost.findByPk(id);
+    const postUnique = await model.BlogPost.findByPk(
+    id,
+        { include: 
+    [
+        { model: model.User, as: 'user', attributes: { exclude: ['password'] } },
+        { model: model.Category, as: 'categories', through: { attributes: [] } },
+    ] },
+    );
+
     return postUnique;
 };
 
