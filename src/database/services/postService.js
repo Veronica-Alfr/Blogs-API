@@ -25,7 +25,7 @@ const getAll = async () => {
         { model: model.User, as: 'user' },
         { model: model.Category,
             as: 'categories',
-            through: { atributtes: [] } },
+            through: { attributes: [] } },
     ] });
 
     return allPosts;
