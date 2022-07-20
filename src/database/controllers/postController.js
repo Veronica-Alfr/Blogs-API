@@ -16,4 +16,10 @@ const create = async (req, res) => {
         throw e;
 };
 
-module.exports = { create };
+const findAll = async (req, res) => {
+    const posts = await postService.getAll();
+    console.log(posts);
+    return res.status(200).json(posts);
+};
+
+module.exports = { create, findAll };
