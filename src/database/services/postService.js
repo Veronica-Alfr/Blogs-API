@@ -24,8 +24,8 @@ const getAll = async () => {
     .findAll({ include: [
         { model: model.User, as: 'user' },
         { model: model.Category,
-            as: 'categories' },
-            // through: { atributtes: [] } },
+            as: 'categories',
+            through: { atributtes: [] } },
     ] });
 
     return allPosts;

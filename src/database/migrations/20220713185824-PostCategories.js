@@ -11,6 +11,8 @@ up: async (queryInterface, Sequelize) => {
         key: 'id',
       },
       primaryKey: true,
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
     },
     categoryId: {
       type: Sequelize.INTEGER,
@@ -20,7 +22,9 @@ up: async (queryInterface, Sequelize) => {
         key: 'id',
       },
       primaryKey: true,
-    }
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE'
+    },
    });
 },
 
