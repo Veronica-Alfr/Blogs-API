@@ -22,7 +22,7 @@ const create = async ({ title, content, categoryIds }, userId) => {
 const getAll = async () => {
     const allPosts = await model.BlogPost
     .findAll({ include: [
-        { model: model.User, as: 'user' },
+        { model: model.User, as: 'user', attributes: { exclude: ['password'] } },
         { model: model.Category,
             as: 'categories',
             through: { attributes: [] } },
@@ -31,4 +31,9 @@ const getAll = async () => {
     return allPosts;
 };
 
-module.exports = { create, getAll };
+const getById = async (id) => {
+    const postUnique = await model.BlogPost.findByPk(id);
+    return postUnique;
+};
+
+module.exports = { create, getAll, getById };

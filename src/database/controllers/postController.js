@@ -18,8 +18,21 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
     const posts = await postService.getAll();
-    console.log(posts);
+
     return res.status(200).json(posts);
 };
 
-module.exports = { create, findAll };
+const findById = async (req, res) => {
+    const { id } = req.params;
+
+    if (!id) {
+        const e = new Error('Post does not exist');
+        e.name = 'NotFoundError';
+        throw e;
+    }
+    const post = await postService.getById(id);
+
+    return res.status(200).json(post);
+};
+
+module.exports = { create, findAll, findById };
