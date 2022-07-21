@@ -25,12 +25,13 @@ const findAll = async (req, res) => {
 const findById = async (req, res) => {
     const { id } = req.params;
 
-    if (!id) {
+    const post = await postService.getById(id);
+
+    if (!post) {
         const e = new Error('Post does not exist');
         e.name = 'NotFoundError';
         throw e;
     }
-    const post = await postService.getById(id);
 
     return res.status(200).json(post);
 };
