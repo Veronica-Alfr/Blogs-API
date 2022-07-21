@@ -36,4 +36,13 @@ const findById = async (req, res) => {
     return res.status(200).json(post);
 };
 
-module.exports = { create, findAll, findById };
+const updated = async (req, res) => {
+    const { id } = req.params;
+    const { title, content } = req.body;
+
+    const postUpdated = await postService.update(id, { title, content });
+
+    return res.status(200).json(postUpdated);
+};
+
+module.exports = { create, findAll, findById, updated };
