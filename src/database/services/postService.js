@@ -45,11 +45,13 @@ const getById = async (id) => {
     return postUnique;
 };
 
-const update = async (id, { title, content }) => {
-    const [postUpdated] = await model.BlogPost.update({ title, content }, { where: { id } });
-
-    // comparar id de blogPost com req.user.data.id para error "Unauthorized user";
-    return postUpdated;
+const update = async (id, { title, content }, userId) => {
+    await model.BlogPost.upsert({
+        id,
+        title,
+        content,
+        userId,
+    });
 };
 
 module.exports = { create, getAll, getById, update };

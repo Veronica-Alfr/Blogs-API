@@ -55,4 +55,20 @@ const validatePost = (body) => {
     return value;
 };
 
-module.exports = { schemaLogin, validateUser, validateCategory, validatePost };
+const validateToUpdate = (body) => {
+    const schemaPost = Joi.object({
+        title: Joi.string().required().messages({
+            'string.empty': fieldsMissing,
+        }),
+        content: Joi.string().required().messages({
+            'string.empty': fieldsMissing,
+        }),
+    });
+
+    const { error, value } = schemaPost.validate(body);
+    if (error) return { error: { code: 400, message: error.details[0].message } };
+ 
+    return value;
+};
+
+module.exports = { schemaLogin, validateUser, validateCategory, validatePost, validateToUpdate };

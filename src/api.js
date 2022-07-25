@@ -25,7 +25,7 @@ app.use((err, _req, res, _next) => {
       case 'UserExistError':
         res.status(409).json({ message });
         break;
-      case 'ValidationTokenError':
+      case 'UnauthorizedUser':
         res.status(401).json({ message });
         break;
       case 'NotFoundError':
