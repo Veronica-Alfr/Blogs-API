@@ -47,7 +47,6 @@ const getById = async (id) => {
 
 const update = async (id, { title, content }, userId) => {
     const idUser = await model.BlogPost.findByPk(id);
-    console.log(idUser.dataValues);
     
     if (userId !== idUser.dataValues.userId) {
         const e = new Error('Unauthorized user');
@@ -57,9 +56,26 @@ const update = async (id, { title, content }, userId) => {
 
     await model.BlogPost.update({ title, content }, { where: { id } });
 
-    // await model.BlogPost.update({ id, title, content, userId });
-
     return getById(id);
 };
 
-module.exports = { create, getAll, getById, update };
+const remove = async (id, userId) => {
+    const post = await model.BlogPost.findByPk(id);
+
+    if (!post) {
+        const e = new Error('Post does not exist');
+        e.name = 'NotFoundError';
+        throw e;
+    }
+    
+    if (userId !== post.dataValues.userId) {
+        const e = new Error('Unauthorized user');
+        e.name = 'UnauthorizedUser';
+        throw e;
+    }
+
+    const postRemoved = await model.BlogPost.destroy({ where: { id } });
+    return postRemoved;
+};
+
+module.exports = { create, getAll, getById, update, remove };

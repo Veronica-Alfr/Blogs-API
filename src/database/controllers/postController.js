@@ -44,8 +44,6 @@ const updated = async (req, res) => {
     if (!post.error) {
         const postUpdated = await postService.update(req.params.id, post, id);
         
-        // const postUpdated = await postService.getById(req.params.id);
-
         return res.status(200).json(postUpdated);
     }
 
@@ -54,4 +52,12 @@ const updated = async (req, res) => {
     throw e;
 };
 
-module.exports = { create, findAll, findById, updated };
+const remove = async (req, res) => {
+    const { id } = req.user.data;
+
+    await postService.remove(req.params.id, id);
+        
+    return res.sendStatus(204);
+};
+
+module.exports = { create, findAll, findById, updated, remove };
