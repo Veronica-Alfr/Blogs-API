@@ -46,14 +46,6 @@ const updated = async (req, res) => {
         
         const postUpdated = await postService.getById(req.params.id);
 
-        const userIdPost = postUpdated.dataValues.user.dataValues.id;
-
-        if (id !== userIdPost) {
-            const e = new Error('Unauthorized user');
-            e.name = 'UnauthorizedUser';
-            throw e;
-        }
-
         return res.status(200).json(postUpdated);
     }
 

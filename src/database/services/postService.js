@@ -46,12 +46,19 @@ const getById = async (id) => {
 };
 
 const update = async (id, { title, content }, userId) => {
-    await model.BlogPost.upsert({
-        id,
-        title,
-        content,
-        userId,
-    });
+    const idUser = await model.BlogPost.findByPk(userId);
+    
+    if (userId !== idUser.dataValues.id) {
+        const e = new Error('Unauthorized user');
+        e.name = 'UnauthorizedUser';
+        throw e;
+    }
+
+    await model.BlogPost.update({ title, content }, { where: { id } });
+
+    // await model.BlogPost.update({ id, title, content, userId });
+
+    // return getById(id);
 };
 
 module.exports = { create, getAll, getById, update };
