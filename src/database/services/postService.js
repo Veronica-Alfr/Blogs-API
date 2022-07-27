@@ -46,9 +46,10 @@ const getById = async (id) => {
 };
 
 const update = async (id, { title, content }, userId) => {
-    const idUser = await model.BlogPost.findByPk(userId);
+    const idUser = await model.BlogPost.findByPk(id);
+    console.log(idUser.dataValues);
     
-    if (userId !== idUser.dataValues.id) {
+    if (userId !== idUser.dataValues.userId) {
         const e = new Error('Unauthorized user');
         e.name = 'UnauthorizedUser';
         throw e;
@@ -58,7 +59,7 @@ const update = async (id, { title, content }, userId) => {
 
     // await model.BlogPost.update({ id, title, content, userId });
 
-    // return getById(id);
+    return getById(id);
 };
 
 module.exports = { create, getAll, getById, update };

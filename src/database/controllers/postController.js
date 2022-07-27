@@ -42,9 +42,9 @@ const updated = async (req, res) => {
     const { id } = req.user.data;
 
     if (!post.error) {
-        await postService.update(req.params.id, post, id);
+        const postUpdated = await postService.update(req.params.id, post, id);
         
-        const postUpdated = await postService.getById(req.params.id);
+        // const postUpdated = await postService.getById(req.params.id);
 
         return res.status(200).json(postUpdated);
     }
