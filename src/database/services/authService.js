@@ -24,7 +24,7 @@ const login = async (email, password) => {
     const { password: _, ...userWithoutPass } = user.dataValues;
 
     const token = jwtService.createToken(userWithoutPass);
-  
+
     return token;
 };
 

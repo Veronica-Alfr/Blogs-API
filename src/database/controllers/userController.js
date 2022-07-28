@@ -37,4 +37,13 @@ const findById = async (req, res) => {
     return res.status(200).json(user);
 };
 
-module.exports = { create, findAll, findById };
+const remove = async (req, res) => {
+    const { id } = req.user.data;
+    console.log(req.user);
+
+    await userService.remove(id);
+
+    return res.sendStatus(204);
+};
+
+module.exports = { create, findAll, findById, remove };
