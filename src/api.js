@@ -3,6 +3,7 @@ const authRouter = require('./database/routers/authRouter');
 const userRouter = require('./database/routers/userRouter');
 const categoryRouter = require('./database/routers/categoriesRouter');
 const postRouter = require('./database/routers/postRouter');
+const error = require('./database/middlewares/error/error');
 
 const app = express();
 
@@ -16,26 +17,7 @@ app.use('/categories', categoryRouter);
 
 app.use('/post', postRouter);
 
-app.use((err, _req, res, _next) => {
-    const { name, message } = err;
-    switch (name) {
-      case 'UnauthorizedError':
-        res.status(400).json({ message });
-        break;
-      case 'UserExistError':
-        res.status(409).json({ message });
-        break;
-      case 'UnauthorizedUser':
-        res.status(401).json({ message });
-        break;
-      case 'NotFoundError':
-        res.status(404).json({ message });
-        break;
-      default:
-        res.status(500).json({ message });
-        break;
-    }
-});
+app.use(error);
 
 // ...
 
