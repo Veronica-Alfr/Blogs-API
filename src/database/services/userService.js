@@ -27,7 +27,7 @@ const getById = async (id) => {
 };
 
 const remove = async (userId) => {
-    const userRemoved = await model.User.destroy({ where: { userId } });
+    const userRemoved = await model.User.destroy({ where: { id: userId } });
     return userRemoved;
 };
 
