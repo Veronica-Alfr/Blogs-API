@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "eaee04de-0040-4a3d-b7b2-1583b2f60a0b",
+		"name": "Blogs API Collection",
+		"description": "### Uso de API para gerenciar o banco de dados de um blog.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "21412246-eaee04de-0040-4a3d-b7b2-1583b2f60a0b"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"id": "34c9958e-86cc-4a7d-bbda-3161c7daf350",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"bernado@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login irá requerir o email e senha do usuário para ele entrar na sua conta, e assim ser possível verificar e mexer nos posts de seu blog.\n\n- Se essa requisição for um sucesso irá retornar `status 200` e um token. Exemplo:\n    \n\n``` json\n{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8\"\n}\n\n```\n\n- Se no corpo da requisição tiver algum campo vazio irá retornar `status 400` com a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Some required fields are missing\"\n}\n\n```\n\n- Se a requisição receber um par de `email`e `password`errados/inexistentes, retornará `status 400` e a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Invalid fields\"\n}\n\n```"
+			},
+			"response": [
+				{
+					"id": "8878e184-af91-45f1-96d1-ca0bb438c042",
+					"name": "Status 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"bernado@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login irá requerir o email e senha do usuário para ele entrar na sua conta, e assim ser possível verificar e mexer nos posts de seu blog.\n\n- Se essa requisição for um sucesso irá retornar `status 200` e um token. Exemplo:\n    \n\n``` json\n{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8\"\n}\n\n```\n\n- Se no corpo da requisição tiver algum campo vazio irá retornar `status 400` com a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Some required fields are missing\"\n}\n\n```\n\n- Se a requisição receber um par de `email`e `password`errados/inexistentes, retornará `status 400` e a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Invalid fields\"\n}\n\n```"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "347"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"15b-NI0/AwAdhJcuabsG1NoIo/zHUtE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 17:35:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxLCJkaXNwbGF5TmFtZSI6IkJyZXR0IFdpbHRzaGlyZSIsImVtYWlsIjoiYnJldHRAZW1haWwuY29tIiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9icmV0dC5wbmcifSwiaWF0IjoxNjc4MTI0MTQ3fQ.dmt6InAMtv1gcRthlIvUK8l4i2TwW8rygZtfv5akRqs\"\n}"
+				},
+				{
+					"id": "a9a69cb8-ee4d-4442-8691-09d88c102953",
+					"name": "Status 400 (Empty Fields)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"bernado@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login irá requerir o email e senha do usuário para ele entrar na sua conta, e assim ser possível verificar e mexer nos posts de seu blog.\n\n- Se essa requisição for um sucesso irá retornar `status 200` e um token. Exemplo:\n    \n\n``` json\n{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8\"\n}\n\n```\n\n- Se no corpo da requisição tiver algum campo vazio irá retornar `status 400` com a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Some required fields are missing\"\n}\n\n```\n\n- Se a requisição receber um par de `email`e `password`errados/inexistentes, retornará `status 400` e a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Invalid fields\"\n}\n\n```"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-LcpZpZM6bcpsx825fNWN9vrxEjU\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 18:02:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Some required fields are missing\"\n}"
+				},
+				{
+					"id": "bc423221-10c9-4d9c-95d4-505cb66f95b6",
+					"name": "Status 400 (Invalid Fields)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"bernado@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Login irá requerir o email e senha do usuário para ele entrar na sua conta, e assim ser possível verificar e mexer nos posts de seu blog.\n\n- Se essa requisição for um sucesso irá retornar `status 200` e um token. Exemplo:\n    \n\n``` json\n{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8\"\n}\n\n```\n\n- Se no corpo da requisição tiver algum campo vazio irá retornar `status 400` com a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Some required fields are missing\"\n}\n\n```\n\n- Se a requisição receber um par de `email`e `password`errados/inexistentes, retornará `status 400` e a mensagem a seguir:\n    \n\n``` json\n{\n  \"message\": \"Invalid fields\"\n}\n\n```"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c-VyGkwaiPxhEHMYvqzL8Q1/MygAs\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 18:16:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid fields\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User",
+			"id": "7a603037-71b7-42fe-a1d6-ffdba9f172a7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"displayName\": \"Bernado Wiltshire\",\r\n  \"email\": \"bernadoemail.com\",\r\n  \"password\": \"123456\",\r\n  \"image\": \"http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/bernado.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "98a64355-284d-4773-b4fe-4874e6517f98",
+					"name": "Status 409",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\": \"Bernado Wiltshire\",\r\n  \"email\": \"bernadoemail.com\",\r\n  \"password\": \"123456\",\r\n  \"image\": \"http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/bernado.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25-h6DCCfy1Z6550E6FIbGJYxMr1Lw\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 18:18:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User already registered\"\n}"
+				},
+				{
+					"id": "e0747751-1295-46d7-9eda-8cfe3b1199f7",
+					"name": "Status 201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\": \"Bernado Wiltshire\",\r\n  \"email\": \"bernadoemail.com\",\r\n  \"password\": \"123456\",\r\n  \"image\": \"http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/bernado.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "381"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"17d-6FStRRzruV//uYuLcr5QmAH+GXY\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 18:21:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoyLCJkaXNwbGF5TmFtZSI6IkJlcm5hZG8gV2lsdHNoaXJlIiwiZW1haWwiOiJiZXJuYWRvQGVtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaW1hZ2UiOiJodHRwOi8vNC5icC5ibG9nc3BvdC5jb20vX1lBNTBhZFEtN3ZRL1MxZ2ZSXzZ1ZnBJL0FBQUFBQUFBQUFrLzFFckpHZ1JXWkRnL1M0NS9iZXJuYWRvLnBuZyJ9LCJpYXQiOjE2NzgxMjY4ODN9.kXWa4U7xmNwlWYe1DM98BUorw0MGaJIBRiAFb7kPa-c\"\n}"
+				},
+				{
+					"id": "0cc9a257-d5f3-48c0-a6b2-3e5e21209a41",
+					"name": "Status 400 (Short Display Name)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\": \"Bernado Wiltshire\",\r\n  \"email\": \"bernadoemail.com\",\r\n  \"password\": \"123456\",\r\n  \"image\": \"http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/bernado.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-saEycqLCI24uscE82uSBC0KwGbE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 18:23:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"displayName\\\" length must be at least 8 characters long\"\n}"
+				},
+				{
+					"id": "d8a43ec9-3944-4c9c-a1de-1d3e43bf3865",
+					"name": "Status 400 (Invalid Email)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"displayName\": \"Bernado Wiltshire\",\r\n  \"email\": \"bernadoemail.com\",\r\n  \"password\": \"123456\",\r\n  \"image\": \"http://4.bp.blogspot.com/_YA50adQ-7vQ/S1gfR_6ufpI/AAAAAAAAAAk/1ErJGgRWZDg/S45/bernado.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-tzX814iOjKIHWXikzWIVPwKQo0U\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 06 Mar 2023 18:26:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"email\\\" must be a valid email\"\n}"
+				}
+			]
+		}
+	]
+}
