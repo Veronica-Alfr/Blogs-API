@@ -10,6 +10,14 @@
   <h3>Status do Projeto</h3>
   
     Finalizado ✅🚀
+  
+  <h3>Documentação</h3>
+  
+  <div background="gray">
+    
+     A documentação foi criada no Postman para ajudar no entendimento das requisições como o body e response.
+ Para acessar clique <a href="https://www.postman.com/veronica-alves/workspace/blogs-api/api/9c24b6d9-c492-4e9d-a0d5-59b927207933/documentation/21412246-19298d73-2497-4af2-b606-cbe07f9ad971">aqui</a>!
+  </div>
 
 <details>
   <summary><strong>🐋 Rodando no Docker vs Localmente</strong></summary>
