@@ -65,7 +65,7 @@
 
   <h3>🛠 Tecnologias</h3>
   
-  <p>As tecnologias usadas foram Node.js, Docker, Eslint, Joi, Async Express Errors.</p>
+  <p>As tecnologias usadas foram Node.js, Docker, JWT, Sequelize, MySQL, Eslint, Joi, Async Express Errors e Postman.</p>
 
 ### Autor
 
