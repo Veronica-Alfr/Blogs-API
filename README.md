@@ -70,7 +70,7 @@
   
   <p>As tecnologias usadas foram Node.js, Docker, JWT, Sequelize, MySQL, Eslint, Joi, Async Express Errors e Postman.</p>
 
-### Autor
+  <h3>Autor</h3>
 
   <a href='https://github.com/Veronica-Alfr'>Verônica Alves</a>
 
