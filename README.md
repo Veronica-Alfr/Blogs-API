@@ -11,16 +11,19 @@
   
     Finalizado ✅🚀
   
-  <h3>Documentação</h3>
-  
-  <div background="gray">
+  <details>
+    <summary><h3>Documentação</h3></summary>
     
-     A documentação foi criada no Postman para ajudar no entendimento das requisições como o body e response.
- Para acessar clique <a href="https://www.postman.com/veronica-alves/workspace/blogs-api/api/9c24b6d9-c492-4e9d-a0d5-59b927207933/documentation/21412246-19298d73-2497-4af2-b606-cbe07f9ad971">aqui</a>!
-  </div>
+    A documentação da API está disponível no site do Postman. Para acessar a documentação, siga estes passos:
 
-<details>
-  <summary><strong>🐋 Rodando no Docker vs Localmente</strong></summary>
+  - Acesse a <a href="https://www.postman.com/veronica-alves/workspace/blogs-api/api/9c24b6d9-c492-4e9d-a0d5-59b927207933/documentation/21412246-19298d73-2497-4af2-b606-cbe07f9ad971">documentação</a>.
+  - Se você não tiver uma conta no Postman, será necessário criar uma para acessá-la.
+  - Depois de acessar a documentação, revise as solicitações, corpos e respostas para entender melhor como usar a API.
+
+  </details>
+ 
+  <details>
+    <summary><h3>🐋 Rodando no Docker vs Localmente</h3></summary>
   
   ## 👉 Com Docker
  
@@ -60,8 +63,8 @@
   - **✨ Dica:** Para rodar o projeto desta forma, obrigatoriamente você deve ter o `node` instalado em seu computador.
   - **✨ Dica:** O avaliador espera que a versão do `node` utilizada seja a 16.
 
-  <br/>
-</details>
+    <br/>
+  </details>
 
   <h3>🛠 Tecnologias</h3>
   
@@ -71,8 +74,8 @@
 
   <a href='https://github.com/Veronica-Alfr'>Verônica Alves</a>
 
-<details>
-  <summary><strong>📜 Licença</strong></summary>
+  <details>
+    <summary><h3>📜 Licença</summary>
  
 
       TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
@@ -262,6 +265,8 @@
          WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
          See the License for the specific language governing permissions and
          limitations under the License.
+  
+  </details>
     
 </main>
 
